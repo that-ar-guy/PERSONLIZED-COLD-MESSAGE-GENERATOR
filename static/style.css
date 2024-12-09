@@ -1,75 +1,57 @@
-/* General styling for body */
+/* General Styling */
 body {
-    overflow:hidden;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background: #1b1fe5;
+    overflow: hidden;
 }
-.first{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: #fff;
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(135deg, #1e3c72, #2a5298);
-    animation: backgroundMove 15s infinite alternate;
-}
-
-/* Background animation */
-@keyframes backgroundMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
-
-.cont{
     display: flex;
-    align-items: center;
     justify-content: center;
-    border: 1px solid black;
-    width: 100%;
-    height: 100vh;
+    align-items: center;
+    z-index: 1000;
+    color: #fff;
 }
 
-/* Container for the form */
-.container {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 400px;
+.splash-content {
+    text-align: center;
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Form animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Heading */
-h1 {
-    font-size: 24px;
-    color: #00d4ff;
-    text-align: center;
-    margin-bottom: 20px;
+.splash-content h1 {
+    font-size: 36px;
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
     animation: glow 2s infinite alternate;
 }
 
-/* Glow animation */
+.splash-content p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+/* Splash Screen Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @keyframes glow {
     from {
         text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
@@ -79,39 +61,54 @@ h1 {
     }
 }
 
-/* Form labels */
+/* Main Container */
+.cont{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form Elements */
 label {
+    margin-bottom:10px ;
+    display: flex;
+    align-items: center; 
+    gap: 8px;
+    font-size: 14px;
+    color: #ddd; 
+}
+/* label {
     font-size: 14px;
     margin-bottom: 5px;
     display: block;
     color: #ddd;
-}
+} */
 
-/* Form inputs and dropdowns */
 input, select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #444;
     border-radius: 4px;
-    font-size: 14px;
     background: #222;
     color: #fff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
-input:focus, select:focus {
-    border-color: #00d4ff;
-    box-shadow: 0 0 5px #00d4ff;
-}
-
-/* Checkbox */
 input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    margin: 0; /* Remove default margin */
+    accent-color: #00d4ff; /* Add custom checkbox color for a modern look */
 }
 
-/* Submit button */
 button {
     width: 100%;
     padding: 10px;
@@ -121,8 +118,6 @@ button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
@@ -130,27 +125,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Footer */
-footer {
-    position: fixed;
-    bottom: 0px;
-    margin-top: 20px;
-    text-align: center;
-    color: #ccc;
-    font-size: 12px;;
-}
-
-footer p {
-    margin: 0;
-}
-
-footer p a{
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Sidebar Styling */
-/* Sidebar styles */
+/* Sidebar */
 .sidebar {
     display: none;
     position: fixed;
@@ -158,65 +133,65 @@ footer p a{
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: #f8f9fa;
+    background: #222;
+    color: #fff;
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 1001;
 }
 
 .sidebar h2 {
-    margin-top: 0;
+    margin: 0;
+    font-size: 20px;
+    color: #00d4ff;
 }
 
 .sidebar a {
+    text-decoration: none;
+    color: #ddd;
     display: block;
     margin: 10px 0;
-    color: #000080;
-    text-decoration: none;
-}
-.sidebar a:visited{
-    color: #000080;
-
 }
 
 .sidebar button {
-    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: #00d4ff;
+    border: none;
+    color: #000;
+    cursor: pointer;
 }
-/* nav strip */
+
+/* Navigation Strip */
 .nav-strip {
-    background-color: #edc98700;
+    background: #222;
     color: white;
     padding: 10px;
-    width: 100%; /* Set width to 100% */
-    position:absolute; /* Fixed position to keep it at the top */
-    top: 0; /* Align it to the top of the page */
-    left: 0; /* Align it to the left */
-    z-index: 1000; /* Ensure it stays above other content */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
 }
 
-.navbar .sidebar-icon {
+.burger-icon {
     font-size: 24px;
-    cursor: pointer;
-    color: white;
     margin-right: 10px;
-}
-
-.burger-icon {color: black;
-    font-size: 24px;
     cursor: pointer;
-    position: absolute; /* Keep the icon absolute */
-    left: 20px; /* Adjust left position */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Align icon vertically */
 }
 
-/* Responsive design */
-@media (max-width: 480px) {
-    .container {
-        padding: 15px;
-    }
+.nav-strip h1 {
+    margin: 0;
+    font-size: 18px;
+}
 
-    h1 {
-        font-size: 20px;
-    }
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+    font-size: 12px;
 }
