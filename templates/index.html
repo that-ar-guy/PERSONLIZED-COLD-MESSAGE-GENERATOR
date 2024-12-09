@@ -3,14 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COLD MESSAGE GENERATOR</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Link to the stylesheet -->
 </head>
 <body>
-    <div class="first">
-        <h1>We are still building</h1>
-        <br>
-    <h2> please come back after sometime</h2>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <h1>THAT AR GUY's</h1>
+            <p>Cold message generator
+            </p>
+        </div>
     </div>
+    <div class="nav-strip">
+        <span class="burger-icon" onclick="toggleSidebar()">&#9776;</span>
+        <h1>COLD MESSAGE GENERATOR</h1>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Developed By</h2>
+        <p><b> Mohammed Abdul Rahman</b> </p>
+        <P> AR </P>
+        <p>
+            <a href="https://github.com/that-ar-guy" target="_blank">GitHub</a>
+        </p>
+        <p>
+            <a href="https://linkedin.com/in/that-ar-guy" target="_blank">LinkedIn</a>
+        </p>
+        <button onclick="toggleSidebar()"><b>CLOSE</b></button>
+    </div>
+    <!-- Main Content -->
+    <div class="cont">
+        <div class="container" style="display: none;">
+            <h1>Job Application Automation</h1>
+            <form action="/process" method="POST">
+                <!-- Company URL -->
+                <label for="company_url">Company URL:</label>
+                <input type="url" id="company_url" name="company_url" placeholder="Enter company URL" required>
+    
+                <!-- Job Position -->
+                <label for="job_position">Job Position:</label>
+                <input type="text" id="job_position" name="job_position" placeholder="Enter the job position" required>
+    
+                <!-- Recipient -->
+                <label for="recipient">Recipient:</label>
+                <select id="recipient" name="recipient" required>
+                    <option value="HR">HR</option>
+                    <option value="CEO">CEO</option>
+                </select>
+    
+                <!-- Resume Attached -->
+                <label>
+                    <input type="checkbox" name="resume_attached">
+                    Resume is attached
+                </label>
+    
+                <!-- Submit Button -->
+                <button type="submit">Generate Message</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>Created by Mohammed Abdul Rahman</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle the splash screen
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+            const mainContent = document.querySelector('.container');
+
+            setTimeout(() => {
+                splash.style.opacity = '0';
+                splash.style.transition = 'opacity 1s ease';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    mainContent.style.display = 'block';
+                }, 1000); // Wait for the fade-out animation to finish
+            }, 3000); // Duration for splash screen
+        });
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </body>
 </html>
