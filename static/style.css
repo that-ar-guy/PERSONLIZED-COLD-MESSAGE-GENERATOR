@@ -1,14 +1,197 @@
-*{
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background: #1b1fe5;
+    overflow: hidden;
 }
-.first{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-content: center;
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: #fff;
+}
+
+.splash-content {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.splash-content h1 {
+    font-size: 36px;
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+    animation: glow 2s infinite alternate;
+}
+
+.splash-content p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+/* Splash Screen Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+    }
+    to {
+        text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff;
+    }
+}
+
+/* Main Container */
+.cont{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form Elements */
+label {
+    margin-bottom:10px ;
+    display: flex;
+    align-items: center; 
+    gap: 8px;
+    font-size: 14px;
+    color: #ddd; 
+}
+/* label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #ddd;
+} */
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: #222;
+    color: #fff;
+}
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0; /* Remove default margin */
+    accent-color: #00d4ff; /* Add custom checkbox color for a modern look */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00d4ff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00a3cc;
+    transform: scale(1.05);
+}
+
+/* Sidebar */
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    z-index: 1001;
+}
+
+.sidebar h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #00d4ff;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #ddd;
+    display: block;
+    margin: 10px 0;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    background: #00d4ff;
+    border: none;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Navigation Strip */
+.nav-strip {
+    background: #222;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.burger-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.nav-strip h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+    font-size: 12px;
 }
